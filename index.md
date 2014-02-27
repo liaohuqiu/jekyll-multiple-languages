@@ -1,16 +1,56 @@
 ---
 layout: default
-title: Bt-docs
-lead: "Write beautiful and concise document in a easy way."
+title: I18N for Jekyll
+lead: "Jekyll Multiple Languages Plugin"
 ---
 
 #What is it?
 ---
 
-* Bootstrap document style
-* Very easy to use
-* Write in `markdown`
-* Multiple languages
+1.  If we write mainly in English, and sometimes in Chinese:
+
+    Config in `_config.yml`.
+
+    ```yaml
+    # Multiple languages, cn for Chinese
+    languages:          ['en', 'cn']
+    
+    # If not config, the first item will be the default
+    language_default:   'en'
+    ```
+
+2.  If we have two pages in English: `index.html`, `about.html`, and meanwhile we have those pages in Chinese, we can name those two Chinese page like this:
+
+*   `index.html` => `cn.index.html` or `index.cn.html`
+*   `about.html` => `cn.about.html` or `about.cn.html`
+
+    `cn` is short for Chinese.
+    
+    In the directory `_posts`, we have a post named `2014-02-26-hi.md`, and the page in Chinese, we can name it:
+
+*   `2014-02-26.hi.md` => `cn.2014-02-26.hi.md` or `2014-02-26.cn.md`
+    
+    Then, the directory will look like:
+
+    ```bash
+    path-of-docs/
+     │
+     ├── index.html                     # write in English
+     ├── about.html                     # write in English
+     │
+     ├── cn.index.html / index.cn.html  # write in Chinese
+     ├── cn.about.html / about.cn.html  # write in Chinese
+     │
+     ├── _posts/                        # destiantion for Jekyll
+     │    │    
+     │    ├── 2014-02-26-hi.md
+     │    └── cn.2014-02-26.md / 2014-02-26.cn.md
+     │       
+     ├── _site/                         # destiantion for Jekyll
+
+    ```
+
+
 
 #How to use
 ---
@@ -22,7 +62,6 @@ lead: "Write beautiful and concise document in a easy way."
     <div class="col-sm-6">
         <h3>Github</h3>
         <p>Fork it in Github, use the souce code in your project.</p>
-        <pre><code>git clone {{ site.download.rep }}</code></pre>
         <a href="{{ site.download.rep }}" class="btn btn-lg btn-outline" role="button" >View on Github</a>
     </div>
     <div class="col-sm-6">
@@ -31,9 +70,10 @@ lead: "Write beautiful and concise document in a easy way."
         <a href="{{ site.download.dist }}" class="btn btn-lg btn-outline" role="button" >Download zip</a>
     </div>
 </div>
-###dirctory structure
+
+###Dirctory structure of master branch
 ```bash
-bt-docs/
+jekyll-multiple-languages/
  ├── assets         # js / css / image
  ├── CNAME          # host name to github pages
  ├── conf           # configure files for develop
@@ -51,47 +91,15 @@ bt-docs/
 
 ##Configure
 ```yaml
-# site information
-info:
-  site_name:    Bt-docs
 
-meta:
-  description:  Write beautiful bootstrap style document in a easy way.
-  keywords:     bootstrap documentation template, beautiful documentation, easy documentation
-  author:       liaohuqiu@gmail.com
+# Multiple languages
+languages:          ['en', 'cn']
 
-#multiple language
-languages:      ["en", "cn"]
+# If not config, the first of languages will be the default
+language_default:   'en'
 
-navigation:
-  en:
-    title:    Bt-docs
-    items1:
-      - path:     /imageloader
-        title:    Image Loader
-      - path:     /request
-        title:    Network Request
-  cn:
-    title:    Cube
-    items1:
-      - path:     /imageloader
-        title:    图片加载组件
-      - path:     /request
-        title:    网络请求
-
-right_nav:
-  - title:    English Version
-    url:      /
-  - title:    中文版文档
-    url:      /cn
-  - title:    Fork on Github
-    url:     https://github.com/liaohuqiu/bt-docs
-
-# analytics account info
-analytics:
-  google:
-    account:    UA-43024238-3
-
+# If a post of default language not set `no_fill_default_content` to true
+# Its content will use to replace if the corresponding content of other languages is not exist.
+# 
+fill_default_content: true
 ```
-##
-

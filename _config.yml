@@ -30,7 +30,7 @@ meta:
 languages:          ['en', 'cn']
 
 # If not config, the first of languages will be the default
-language_default:   "en"
+language_default:   'en'
 
 # If a post of default language not set `no_fill_default_content` to true
 # Its content will use to replace if the corresponding content of other languages is not exist.

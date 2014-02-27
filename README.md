@@ -1,6 +1,5 @@
-bt-docs
-=======
+Multiple Languages Plugin for Jekyll
 
-A bootstrap docs like document site.
+[Visit Project Page for more information](http://jekyll-langs.liaohuqiu.net/)
 
-Please visit bt-docs.liaohuqiu.net.
+[中文文档](http://jekyll-langs.liaohuqiu.net/cn)
