@@ -11,7 +11,7 @@
 
 <title>
   
-  Bt-docs &middot; Jekyll Multiple Languages
+  I18N for Jekyll &middot; Jekyll Multiple Languages
   
 </title>
 
@@ -59,7 +59,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/" class="navbar-brand"></a>
+            <a href="/" class="navbar-brand">Jekyll Multiple Languages</a>
         </div>
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
@@ -88,8 +88,8 @@
     <!-- Docs page layout -->
     <div class="bs-header" id="content">
       <div class="container">
-        <h1>Bt-docs</h1>
-        <p>Write beautiful and concise document in a easy way.</p>
+        <h1>I18N for Jekyll</h1>
+        <p>Jekyll Multiple Languages Plugin</p>
       </div>
     </div>
 
@@ -101,11 +101,44 @@
 
 <hr>
 
+<ol>
+<li><p>If we write mainly in English, and sometimes in Chinese:</p>
+
+<p>Config in <code>_config.yml</code>.</p>
+<div class="highlight"><pre><code class="yaml language-yaml" data-lang="yaml"><span class="c1"># Multiple languages, cn for Chinese</span>
+<span class="l-Scalar-Plain">languages</span><span class="p-Indicator">:</span>          <span class="p-Indicator">[</span><span class="s">&#39;en&#39;</span><span class="p-Indicator">,</span> <span class="s">&#39;cn&#39;</span><span class="p-Indicator">]</span>
+
+<span class="c1"># If not config, the first item will be the default</span>
+<span class="l-Scalar-Plain">language_default</span><span class="p-Indicator">:</span>   <span class="s">&#39;en&#39;</span>
+</code></pre></div></li>
+<li><p>If we have two pages in English: <code>index.html</code>, <code>about.html</code>, and meanwhile we have those pages in Chinese, we can name those two Chinese page like this:</p></li>
+</ol>
+
 <ul>
-<li>Bootstrap document style</li>
-<li>Very easy to use</li>
-<li>Write in <code>markdown</code></li>
-<li>Multiple languages</li>
+<li>  <code>index.html</code> =&gt; <code>cn.index.html</code> or <code>index.cn.html</code></li>
+<li><p><code>about.html</code> =&gt; <code>cn.about.html</code> or <code>about.cn.html</code></p>
+
+<p><code>cn</code> is short for Chinese.</p>
+
+<p>In the directory <code>_posts</code>, we have a post named <code>2014-02-26-hi.md</code>, and the page in Chinese, we can name it:</p></li>
+<li><p><code>2014-02-26.hi.md</code> =&gt; <code>cn.2014-02-26.hi.md</code> or <code>2014-02-26.cn.md</code></p>
+
+<p>Then, the directory will look like:</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">path-of-docs/
+ │
+ ├── index.html                     <span class="c"># write in English</span>
+ ├── about.html                     <span class="c"># write in English</span>
+ │
+ ├── cn.index.html / index.cn.html  <span class="c"># write in Chinese</span>
+ ├── cn.about.html / about.cn.html  <span class="c"># write in Chinese</span>
+ │
+ ├── _posts/                        <span class="c"># destiantion for Jekyll</span>
+ │    │    
+ │    ├── 2014-02-26-hi.md
+ │    └── cn.2014-02-26.md / 2014-02-26.cn.md
+ │       
+ ├── _site/                         <span class="c"># destiantion for Jekyll</span>
+</code></pre></div></li>
 </ul>
 
 <h1>How to use</h1>
@@ -120,7 +153,6 @@
     <div class="col-sm-6">
         <h3>Github</h3>
         <p>Fork it in Github, use the souce code in your project.</p>
-        <pre><code>git clone https://github.com/liaohuqiu/jekyll-multiple-languages</code></pre>
         <a href="https://github.com/liaohuqiu/jekyll-multiple-languages" class="btn btn-lg btn-outline" role="button" >View on Github</a>
     </div>
     <div class="col-sm-6">
@@ -130,8 +162,8 @@
     </div>
 </div>
 
-<h3>dirctory structure</h3>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">bt-docs/
+<h3>Dirctory structure of master branch</h3>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">jekyll-multiple-languages/
  ├── assets         <span class="c"># js / css / image</span>
  ├── CNAME          <span class="c"># host name to github pages</span>
  ├── conf           <span class="c"># configure files for develop</span>
@@ -146,46 +178,16 @@
  └── tools   
 </code></pre></div>
 <h2>Configure</h2>
-<div class="highlight"><pre><code class="yaml language-yaml" data-lang="yaml"><span class="c1"># site information</span>
-<span class="l-Scalar-Plain">info</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">site_name</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">Bt-docs</span>
+<div class="highlight"><pre><code class="yaml language-yaml" data-lang="yaml"><span class="c1"># Multiple languages</span>
+<span class="l-Scalar-Plain">languages</span><span class="p-Indicator">:</span>          <span class="p-Indicator">[</span><span class="s">&#39;en&#39;</span><span class="p-Indicator">,</span> <span class="s">&#39;cn&#39;</span><span class="p-Indicator">]</span>
 
-<span class="l-Scalar-Plain">meta</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">Write beautiful bootstrap style document in a easy way.</span>
-  <span class="l-Scalar-Plain">keywords</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">bootstrap documentation template, beautiful documentation, easy documentation</span>
-  <span class="l-Scalar-Plain">author</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">liaohuqiu@gmail.com</span>
+<span class="c1"># If not config, the first of languages will be the default</span>
+<span class="l-Scalar-Plain">language_default</span><span class="p-Indicator">:</span>   <span class="s">&#39;en&#39;</span>
 
-<span class="c1">#multiple language</span>
-<span class="l-Scalar-Plain">languages</span><span class="p-Indicator">:</span>      <span class="p-Indicator">[</span><span class="s">&quot;en&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;cn&quot;</span><span class="p-Indicator">]</span>
-
-<span class="l-Scalar-Plain">navigation</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">en</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">Bt-docs</span>
-    <span class="l-Scalar-Plain">items1</span><span class="p-Indicator">:</span>
-      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">/imageloader</span>
-        <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">Image Loader</span>
-      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">/request</span>
-        <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">Network Request</span>
-  <span class="l-Scalar-Plain">cn</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">Cube</span>
-    <span class="l-Scalar-Plain">items1</span><span class="p-Indicator">:</span>
-      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">/imageloader</span>
-        <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">图片加载组件</span>
-      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">/request</span>
-        <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">网络请求</span>
-
-<span class="l-Scalar-Plain">right_nav</span><span class="p-Indicator">:</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">English Version</span>
-    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">/</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">中文版文档</span>
-    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">/cn</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">Fork on Github</span>
-    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">https://github.com/liaohuqiu/bt-docs</span>
-
-<span class="c1"># analytics account info</span>
-<span class="l-Scalar-Plain">analytics</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">google</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">account</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">UA-43024238-3</span>
+<span class="c1"># If a post of default language not set `no_fill_default_content` to true</span>
+<span class="c1"># Its content will use to replace if the corresponding content of other languages is not exist.</span>
+<span class="c1"># </span>
+<span class="l-Scalar-Plain">fill_default_content</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
 </code></pre></div>
         </div>
         <div class="col-md-3">
