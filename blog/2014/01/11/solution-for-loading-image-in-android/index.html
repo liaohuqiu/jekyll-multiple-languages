@@ -1,0 +1,108 @@
+<h4>Problems</h4>
+
+<ul>
+<li>Memory quota</li>
+<li>ListView</li>
+<li>OutOfMemory</li>
+<li>Network traffic  -&gt; reuse / cache</li>
+</ul>
+
+<hr>
+
+<p>A common workflow to load image from network:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------------------+
+|  Start to load        |
++-------+---------------+
+        |
+        v
++-----------------------+
+| Found in local cache  |
++-------+---------------+
+        |
+    N --+--- Y ------------+
+    |                      |
+    v                      |
++-----------------------+  |
+| Fetch from network    |  |
++-------+---------------+  |
+        |                  |
+        v                  |
++-----------------------+  |
+| Store to local cache  |  |
++-------+---------------+  |
+        |                  |
+        v                  |
++-----------------------+  |
+| Draw in ImageView     |&lt;-+
++-------+---------------+
+</code></pre></div>
+<hr>
+
+<h4>Local Cache</h4>
+
+<ol>
+<li><p>Quota</p></li>
+<li><p>Memory Cache</p></li>
+<li><p>File Cache</p></li>
+</ol>
+
+<blockquote>
+<p>Reuse</p>
+</blockquote>
+
+<hr>
+
+<h4>Cross Thread</h4>
+
+<ol>
+<li><p><code>Handler</code> and <code>LoadImageHandler</code></p></li>
+<li><p>Thread Pool</p></li>
+<li><p>Task Schedule</p></li>
+</ol>
+
+<hr>
+
+<h4>Size and Format Control</h4>
+
+<ul>
+<li><p>From network</p></li>
+<li><p>From local cache</p></li>
+</ul>
+
+<blockquote>
+<p>The image data in local cache is reused for a smaller size.</p>
+</blockquote>
+
+<ul>
+<li>Support <code>.webp</code> format.</li>
+</ul>
+
+<h4>Notice</h4>
+
+<ul>
+<li><p>Memory In android</p>
+
+<ul>
+<li>native</li>
+<li>Dalvik heap</li>
+</ul></li>
+<li><p>API Level &lt; 11 (Android 3.0), native + heap : <code>bitmap.recycle()</code></p></li>
+<li><p>Bitmap Memory Use</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">private static int getBytesPerPixel(Config config) {
+    if (config == Config.ARGB_8888) {
+        return 4;
+    } else if (config == Config.RGB_565) {
+        return 2;
+    } else if (config == Config.ARGB_4444) {
+        return 2;
+    } else if (config == Config.ALPHA_8) {
+        return 1;
+    }
+    return 1;
+}
+</code></pre></div>
+<blockquote>
+<p>2592x1936 pixels (5 megapixels)
+If the bitmap configuration used is ARGB_8888 (the default from the Android 2.3 onward) then loading this image into memory takes about 19MB of memory (2592<em>1936</em>4 bytes), immediately exhausting the per-app limit on some devices.</p>
+</blockquote></li>
+</ul>
