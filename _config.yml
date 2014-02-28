@@ -41,17 +41,17 @@ navigation:
   en:
     title:    Jekyll Multiple Languages
     items1:
-      - path:     /imageloader
-        title:    Image Loader
-      - path:     /request
-        title:    Network Request
+      - path:     
+        title:    
+      - path:    
+        title:  
   cn:
     title:    Jekyll Multiple Languages
     items1:
-      - path:     /imageloader
-        title:    图片加载组件
-      - path:     /request
-        title:    网络请求
+      - path:    
+        title:  
+      - path:  
+        title:
 
 right_nav:
   - title:    English Version

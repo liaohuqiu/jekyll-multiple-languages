@@ -198,7 +198,7 @@ module Jekyll
     # For match /blog/$lang.2014-02-14-the-blog-name.md 
     # or /blog/2014-02-14-the-blog-name.$lang.md
     #
-    def valid?(name)
+    def self.valid?(name)
       name =~ MATCHER_WITH_LANG
     end
 
