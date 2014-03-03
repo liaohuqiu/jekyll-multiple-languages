@@ -238,11 +238,11 @@
                       ├── one/index.html
                       └── two/index.html
 </code></pre></div>
-<h1>How to use</h1>
+<h1>Usage</h1>
 
 <hr>
 
-<h3 id="download">Download</h3>
+<h2 id="download">Download</h2>
 
 <p class='lead'>You can fork the github repository, or download zip package.</p>
 
@@ -259,21 +259,51 @@
     </div>
 </div>
 
-<h1>Configure</h1>
+<hr>
+
+<h2>Configure in <code>_config.yml</code></h2>
+
+<ul>
+<li><p><code>languages</code>: The all of the languages.</p></li>
+<li><p><code>language_default</code>: The default language, if not set the first item in <code>languages</code> will be used.</p></li>
+<li><p><code>fill_default_content</code>:</p>
+
+<p>If this value is set to <code>ture</code>, the page or post of default language will
+be used for generating if the corresponding page of
+the other page or post <strong>is not exist</strong>.</p>
+
+<blockquote>
+<p>You can configure in <code>Page</code> or <code>Post</code> of default language make them will not be used to generated for the other language.</p>
+</blockquote></li>
+</ul>
+
+<p>An example of configure in <code>_config.yml</code>:</p>
 <div class="highlight"><pre><code class="yaml language-yaml" data-lang="yaml"><span class="c1"># Multiple languages</span>
 <span class="l-Scalar-Plain">languages</span><span class="p-Indicator">:</span>          <span class="p-Indicator">[</span><span class="s">&#39;en&#39;</span><span class="p-Indicator">,</span> <span class="s">&#39;cn&#39;</span><span class="p-Indicator">]</span>
 
 <span class="c1"># If not config, the first of languages will be the default</span>
 <span class="l-Scalar-Plain">language_default</span><span class="p-Indicator">:</span>   <span class="s">&#39;en&#39;</span>
 
-<span class="c1"># If a post of default language not set `no_fill_default_content` to true</span>
-<span class="c1"># Its content will use to replace if the corresponding content of other languages is not exist.</span>
-<span class="c1"># </span>
 <span class="l-Scalar-Plain">fill_default_content</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
 </code></pre></div>
-<h1>Variable</h1>
+<h2>Configure in Page or Post</h2>
+
+<ul>
+<li>no<em>fill</em>default_content: If set this value to <code>ture</code> in a Page or Post of</li>
+<li>default language, its content will not be used to generate the 
+#Variable</li>
+</ul>
+
+<p>The variables in Page:</p>
+
+<p>The variables in Post:</p>
 
 <h1>Paginate</h1>
+
+<ul>
+<li><p>Page <code>index.md</code>, <code>index.html</code>, <code>index.*</code> are the paginate templete of default language.</p></li>
+<li><p>Page <code>index.$lang.$ext</code> or <code>$lang.index.$ext</code> is the paginate templete for <code>$lang</code>.</p></li>
+</ul>
 
 <h1>Github Pages</h1>
 
