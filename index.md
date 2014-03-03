@@ -147,10 +147,10 @@ path-of-docs/
                       └── two/index.html
 ```
 
-#How to use
+#Usage
 ---
 
-<h3 id="download">Download</h3>
+<h2 id="download">Download</h2>
 <p class='lead'>You can fork the github repository, or download zip package.</p>
 
 <div class="row">
@@ -166,24 +166,93 @@ path-of-docs/
     </div>
 </div>
 
-#Configure
-```yaml
+---
 
+## Configure in `_config.yml`
+
+* `languages`: The all of the languages.
+
+* `language_default`: The default language, if not set the first item in `languages` will be used.
+
+* `fill_default_content`:
+
+    If this value is set to `ture`, the page or post of default language will
+    be used for generating if the corresponding page of
+    the other page or post **is not exist**.
+
+    >   You can configure in `Page` or `Post` of default language make them will not be used to generated for the other language.
+
+An example of configure in `_config.yml`:
+
+```yaml
 # Multiple languages
 languages:          ['en', 'cn']
 
 # If not config, the first of languages will be the default
 language_default:   'en'
 
-# If a post of default language not set `no_fill_default_content` to true
-# Its content will use to replace if the corresponding content of other languages is not exist.
-# 
 fill_default_content: true
 ```
+
+## Configure in Page or Post
+
+* no_fill_default_content: If set this value to `ture` in a Page or Post of
+* default language, its content will not be used to generate the 
 #Variable
+
+The variables in Page:
+
+
+The variables in Post:
 
 
 #Paginate
 
+* Page `index.md`, `index.html`, `index.*` are the paginate templete of default language.
+
+* Page `index.$lang.$ext` or `$lang.index.$ext` is the paginate templete for `$lang`.
+
 
 #Github Pages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
