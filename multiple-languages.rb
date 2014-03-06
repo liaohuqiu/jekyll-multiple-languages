@@ -47,7 +47,7 @@ module Jekyll
     def process_to_liquid(attrs = nil)
       data_for_liquid = self.to_liquid_org(attrs)
       attrs_for_lang = self.language_attributes_for_liquid || []
-      attrs_for_lang.concat(%w[language])
+      attrs_for_lang.concat(%w[language is_default_language url_no_language])
       further_data = Hash[attrs_for_lang.map { |attribute|
         [attribute, send(attribute)]
       }]
@@ -131,6 +131,15 @@ module Jekyll
         self.send("#{opt}=", config[opt])
       end
       self.config = config
+    end
+
+    alias :site_payload_org :site_payload
+    def site_payload
+      payload = site_payload_org
+      payload.merge({
+        "posts_by_language" => self.posts_by_language,
+        "pages_by_language" => self.pages_by_language,
+      })
     end
 
   end
