@@ -1,5 +1,7 @@
 # Dependencies
 markdown:         redcarpet
+redcarpet:
+    extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 pygments:         true
 
 # Permalinks
@@ -19,11 +21,11 @@ exclude:
 
 # site information
 info:
-  site_name:    Jekyll Multiple Languages
+  site_name:    Jekyll Multiple Languages Plugin
 
 meta:
-  description:  Multiple languages support for jekyl ruby
-  keywords:     Jekyll, multiple languages support, jekyll ruby plugins
+  description:  The best multiple languages plugin for Jekyll
+  keywords:     Jekyll multiple languages plugin
   author:       liaohuqiu@gmail.com
 
 # Multiple languages
