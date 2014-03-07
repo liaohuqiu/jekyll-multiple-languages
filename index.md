@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Easy / Simple / Nature
-lead: "Easy to use, Name your pages and post naturally, easy to manager."
+lead: "Easy to use, Name your pages and post naturally and easy to manager."
 ---
 
 #What is it?
