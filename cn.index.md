@@ -49,43 +49,51 @@ lead: ""
 
 #### 示例相关的配置
 
-First, the  `pygments` is set to `pretty` in `_config.yml`
+*   例子中我们有两种语言，英语和中文。英语为网站默认语言。
 
-* `_config.yml`:
+    中文用缩写`cn`来代表。
+
+    ```yaml
+    language_default: 'en'
+    languages:        ['en', 'cn']
+    ```
+
+*   然后，在`_config.yml`中`permalink`设置成`pretty`:
 
     ```yaml
     # Permalinks, default is pretty
     permalink:        pretty
     ```
 
-#### The content
+#### 原始文档内容
 
-If we have two pages in English: `index.md`, `about.md`, and meanwhile we have those pages in Chinese, we can name those two Chinese page like this, we use `cn` short for Chinese:
+如果我们有两个英文页面: `index.md`, `about.md`，同时，有两个对应的中文页面，我们可以这样命名，用`cn`来代替中文:
 
-*   `index.md` => `cn.index.md` or `index.cn.md`
+*   `index.md` => `cn.index.md` 或者 `index.cn.md`
 
-*   `about.md` => `cn.about.md` or `about.cn.md`
+*   `about.md` => `cn.about.md` 或者 `about.cn.md`
     
-In the directory `_posts`, we have a post named `2014-02-26-one.md`, and the page in Chinese, we can name it:
+在文章目录`_posts`下，有一个英文的文章 `2014-02-26-one.md`，对应的中文文章，可以这样：
 
 * `2014-02-26.one.md` => `cn.2014-02-26.one.md` or `2014-02-26.one.cn.md`.
     
-And another two more: 
+另外再有两篇文章:
 
 * `cn.2014-02-26-two.md`
 
 * `2014-02-26-three.md`
 
-#### The build result:
+#### 生成的结果
 
-Now, we build it:
+用jekyll生成内容：
 
-```bash linenos
+```bash
 $ jekyll build
 $ cd ./_site
 $ find . -type f
 ```
-The files in `_site/`:
+
+列出`_site/`目录下的所有文件：
 
 ```
 ./index.html
@@ -98,25 +106,25 @@ The files in `_site/`:
 ./2014/02/26/three/index.html
 ```
 
-The whole directory structure:
+整个项目的目录结构：
 
 ```bash
 path-of-docs/
  │
- ├── index.md                       # write in English
- ├── about.md                       # write in English
+ ├── index.md                       # 英文
+ ├── about.md                       # 中文
  │
- ├── cn.index.md / index.cn.md      # write in Chinese
- ├── cn.about.md / about.cn.md      # write in Chinese
+ ├── cn.index.md / index.cn.md      # index.md对应的中文
+ ├── cn.about.md / about.cn.md      # about.md对应的中文
  │
- ├── _posts/                        # destiantion for Jekyll
+ ├── _posts/                        # 文章目录
  │    │    
  │    ├── 2014-02-26-one.md
  │    ├── 2014-02-26.one.cn.md / cn.2014-02-26.one.md
  │    ├── cn.2014-02-26.two.md
  │    └── 2014-02-26-three.md
  │       
- └── _site/                         # destiantion for Jekyll
+ └── _site/                         # 网站生成目录
       │
       ├── index.html
       ├── about/index.html
@@ -136,7 +144,7 @@ path-of-docs/
                       └── two/index.html
 ```
 
-#Installation
+#安装和使用
 ---
 
 <p class='lead'>You can fork the github repository, or download zip package.</p>
@@ -154,108 +162,107 @@ path-of-docs/
     </div>
 </div>
 
-# Configure
+# 配置
 ---
 
-* ### in `_config.yml`
+* ###  `_config.yml`
 
-    * `languages`: The all of the languages.
+    * `languages`: 所有的语言
     
-    * `language_default`: The default language, if not set the first item in `languages` will be used.
+    * `language_default`: 默认语言，如果没有指定，使用`languages`数组中的第一个语言。
     
     * `fill_default_content`:
     
-        If this value is set to `ture`, the page or post of default language will
-        be used for generating if the corresponding page of
-        the other page or post **is not exist**.
+        如果这个值设置成 `ture`，当一个默认语言页面对应的其他语言的页面不存在的时候，会用默认语言页面生成其他语言的页面。
     
-        >   You can configure in `Page` or `Post` of default language make them will not be used to generated for the other language.
+        >   如果你不想某些默认语言的文章或者页面被生成其他语言，你可以在这些文章设置`no_fill_default_content`
     
-    An example of configure in `_config.yml`:
+    `_config.yml`示例
     
     ```yaml
-    # Multiple languages
+    # 多语言配置
     languages:          ['en', 'cn']
     
-    # If not config, the first of languages will be the default
+    # 默认语言
+    # 如果没有配置，languages中的第一项就是默认语言
     language_default:   'en'
     
     fill_default_content: true
     ```
 
-* ### Configure in Page or Post
+* ### 普通页面或者文章配置
 
     * `no_fill_default_content`
     
-        If set this value to `ture` in a Page or Post of default language, its content will not be used to generate for the other languages.
+        在默认语言文章或者普通页面，如果设置成`true`，当对应的其他语言的页不存在时，不会用于生存这些页面。
 
-#Variables
+#变量
 ---
 
 * `page.language`
 
-    The language in this Page or Post.
+    当前页面或者文章的语言。
 
 * `page.is_default_language`
 
-    If this Page or Post is in the default language, its value is `true`
+    当前页面或者文章的语言是否是默认语言。
 
 * `page.url`
 
-    If not the default language, will start with `page.language`: `/cn/about/`;
+    如果是默认语言页面，这个值和没使用插件时没有任何区别。
+
+    如果是其他语言，路径前缀是`page.language`，比如: `/cn/about/`;
 
 *   `page.url_no_language`
 
-    The url without `site.language`. In the Page or Page in default language, this value is same with `page.url`.
+    不含`site.language`的路径，和不使用本插件时的`page.url`值一样。
     
-    This value will be the same for all of the languages.
+    在默认语言的页面或者文章中，这个值和`page.url`一样。
+    
+    同一页面所有语言的`page.url`都一样。
 
     ---
 
 *   `site.pages`
 
-    All the Pages, including all languages;
+    包括所有语言在内的所有页面。
 
-*   `site.post`
+*   `site.posts`
 
-    All the Posts, including all languages;
+    包括所有语言在内的所有文章。
 
 *   `site.pages_by_language`
 
-    It is all the `site.pages` grouped by languages. 
-    
-    It is a hash. The key is language and the value is all of the Pages in this kind of language.
+    `site.pages` 根据语言分组。key是语言，value是该语言下的所有文章。
 
-    The value is also a hash, the key is the `page.url_no_language`.
+    各个语言对应的文章，以`page.url_no_language`索引。
 
 *   `site.posts_by_language`
 
-    It is similar to `site.pages_by_language`, it is all the `site.posts` grouped by languages.
+    `site.posts` 根据语言分组。
 
-#Paginate
+#分页
 ---
 
-####The template
+####分页模板
 
-* Page named `index.*` is the paginate template for default language.
+*   形如 `index.*` 都可以做为默认语言的分页模板。并不局限于 `index.html`。
 
-    For example: `index.md`, `index.html`.
+    比如: `index.md`, `index.html`.
 
-* Page `index.$lang.$ext` or `$lang.index.$ext` is the paginate template for the other languages(short for `$lang`).
+*   其他语言的分页模板文件命名格式为: `index.$lang.$ext` 或者 `$lang.index.$ext`。
 
-    For example: `index.cn.md`, `cn.index.md`.
+    比如: `index.cn.md`, `cn.index.md`.
 
-####The variables
+####分页的变量
 
 *   `paginator.posts`
 
-    It is all of the posts in this kind language.
+    当前语言的所有文章。
 
 #Github Pages
 ---
 
-**Try to use Jekyll plugins on Github Pages is a little complicated.**
+**Github Pages 运行在safe模式，在这个模式下，暂时无法使用插件。**
 
-###[How to use Jekyll plugins on Github Pages](http://www.liaohuqiu.net/posts/jekyll-plugins-on-github-pages/)
-
-
+如果你网站要放到Github上，这里有一个解决方案：: **[托管在Github上的网站如何使用插件](http://www.liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages/)**
