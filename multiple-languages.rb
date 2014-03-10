@@ -292,7 +292,8 @@ module Jekyll
     def self.calc_paginate_path_with_lang(site, the_template_page, num_page)
       path = self.calc_paginate_path(site, the_template_page, num_page)
       return nil if path.nil?
-      if !the_template_page.is_default_language
+      lang_prefix = '/' + the_template_page.language
+      if !the_template_page.is_default_language && (path && path.index(lang_prefix) != 0)
         path = '/' + the_template_page.language + path
       end
       path
