@@ -102,8 +102,7 @@ module Jekyll
     end
 
     def fill_default_content(contents, grouped_contents, default, targets, kclass)
-      grouped_contents[default].select{|k,v| !v.data['no_fill_default_content']}
-      .each{ |k, content|
+      grouped_contents[default].select{|k,v| !v.data['no_fill_default_content']}.each{ |k, content|
         targets.each{|lang|
           if !grouped_contents[lang][k]
             c = kclass.new(self, @source, content.dir_source, content.name)
