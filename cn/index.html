@@ -101,7 +101,7 @@
 
       <div class="row">
         <div class="col-md-9" role="main">
-          <h1 id="toc_0">主要功能</h1>
+          <h1 id="主要功能">主要功能</h1>
 
 <hr>
 
@@ -111,7 +111,7 @@
 
 <p>这个插件提供了多语言了支持，使用非常简单，并且各个语言原始文档管理非常方便。</p>
 
-<h3 id="toc_1">文件命名方式</h3>
+<h3 id="文件命名方式">文件命名方式</h3>
 
 <p>默认语言：</p>
 
@@ -131,7 +131,7 @@
 <p><code>2014-02-26.hi.md</code> =&gt; <code>$lang.2014-02-26.hi.md</code> or <code>2014-02-26-hi.cn.md</code></p></li>
 </ul>
 
-<h3 id="toc_2">生成的结果</h3>
+<h3 id="生成的结果">生成的结果</h3>
 
 <ul>
 <li><p>默认语言生成的结果和没用本插件一样，如果没有在<code>_config.yml</code>指定目标目录，那么目标目录就是在：<code>_site</code> 目录下。</p></li>
@@ -140,29 +140,29 @@
 
 <hr>
 
-<h3 id="toc_3">示例</h3>
+<h3 id="示例">示例</h3>
 
 <ul>
 <li><p><a href="https://github.com/liaohuqiu/jekyll-multiple-languages-sample/tree/master">查看示例代码</a></p></li>
 <li><p><a href="http://jekyll-langs-sample.liaohuqiu.net">示例代码生成的网站</a></p></li>
 </ul>
 
-<h4 id="toc_4">示例相关的配置</h4>
+<h4 id="示例相关的配置">示例相关的配置</h4>
 
 <ul>
 <li><p>例子中我们有两种语言，英语和中文。英语为网站默认语言。</p>
 
 <p>中文用缩写<code>cn</code>来代表。</p>
-<div class="highlight"><pre><code class="yaml language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">language_default</span><span class="p-Indicator">:</span> <span class="s">&#39;en&#39;</span>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">language_default</span><span class="p-Indicator">:</span> <span class="s">&#39;en&#39;</span>
 <span class="l-Scalar-Plain">languages</span><span class="p-Indicator">:</span>        <span class="p-Indicator">[</span><span class="s">&#39;en&#39;</span><span class="p-Indicator">,</span> <span class="s">&#39;cn&#39;</span><span class="p-Indicator">]</span>
 </code></pre></div></li>
 <li><p>然后，在<code>_config.yml</code>中<code>permalink</code>设置成<code>pretty</code>:</p>
-<div class="highlight"><pre><code class="yaml language-yaml" data-lang="yaml"><span class="c1"># Permalinks, default is pretty</span>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Permalinks, default is pretty</span>
 <span class="l-Scalar-Plain">permalink</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">pretty</span>
 </code></pre></div></li>
 </ul>
 
-<h4 id="toc_5">原始文档内容</h4>
+<h4 id="原始文档内容">原始文档内容</h4>
 
 <p>如果我们有两个英文页面: <code>index.md</code>, <code>about.md</code>，同时，有两个对应的中文页面，我们可以这样命名，用<code>cn</code>来代替中文:</p>
 
@@ -184,15 +184,15 @@
 <li><p><code>2014-02-26-three.md</code></p></li>
 </ul>
 
-<h4 id="toc_6">生成的结果</h4>
+<h4 id="生成的结果">生成的结果</h4>
 
 <p>用jekyll生成内容：</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>jekyll build
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>jekyll build
 <span class="nv">$ </span><span class="nb">cd</span> ./_site
 <span class="nv">$ </span>find . -type f
 </code></pre></div>
 <p>列出<code>_site/</code>目录下的所有文件：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">./index.html
+<div class="highlight"><pre><code class="language-text" data-lang="text">./index.html
 ./cn/index.html
 ./about/index.html
 ./cn/about/index.html
@@ -202,7 +202,7 @@
 ./2014/02/26/three/index.html
 </code></pre></div>
 <p>整个项目的目录结构：</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">path-of-docs/
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">path-of-docs/
  │
  ├── index.md                       <span class="c"># 英文</span>
  ├── about.md                       <span class="c"># 中文</span>
@@ -236,33 +236,22 @@
                       ├── one/index.html
                       └── two/index.html
 </code></pre></div>
-<h1 id="toc_7">安装和使用</h1>
+<h1 id="安装和使用">安装和使用</h1>
 
 <hr>
 
-<p class='lead'>You can fork the github repository, or download zip package.</p>
-
-<div class="row">
-    <div class="col-sm-6">
-        <h3>Github</h3>
-        <p>Fork it in Github, use the souce code in your project.</p>
-        <a href="https://github.com/liaohuqiu/jekyll-multiple-languages" class="btn btn-lg btn-outline" role="button" >View on Github</a>
-    </div>
-    <div class="col-sm-6">
-        <h3 id="download-zip">Zip</h3>
-        <p>If you dont use git, you can download the zip package.</p>
-        <a href="https://github.com/liaohuqiu/jekyll-multiple-languages/archive/master.zip" class="btn btn-lg btn-outline" role="button" >Download zip</a>
-    </div>
-</div>
-
-<h1 id="toc_8">配置</h1>
+<p>使用gem安装扩展</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">gem install jekyll-multiple-languages
+</code></pre></div>
+<h1 id="配置">配置</h1>
 
 <hr>
 
 <ul>
-<li><h3 id="toc_9"><code>_config.yml</code></h3>
+<li><h3 id="_config.yml"><code>_config.yml</code></h3>
 
 <ul>
+<li><code>gems</code>:   加入 <code>&#39;Jekyll-multiple-languages&#39;</code> </li>
 <li><code>languages</code>: 所有的语言</li>
 <li><code>language_default</code>: 默认语言，如果没有指定，使用<code>languages</code>数组中的第一个语言。</li>
 <li><p><code>fill_default_content</code>:</p>
@@ -275,7 +264,9 @@
 </ul>
 
 <p><code>_config.yml</code>示例</p>
-<div class="highlight"><pre><code class="yaml language-yaml" data-lang="yaml"><span class="c1"># 多语言配置</span>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># 多语言配置</span>
+<span class="l-Scalar-Plain">gems</span><span class="p-Indicator">:</span>           <span class="p-Indicator">[</span><span class="s">&#39;jekyll-multiple-languages&#39;</span><span class="p-Indicator">]</span>
+
 <span class="l-Scalar-Plain">languages</span><span class="p-Indicator">:</span>          <span class="p-Indicator">[</span><span class="s">&#39;en&#39;</span><span class="p-Indicator">,</span> <span class="s">&#39;cn&#39;</span><span class="p-Indicator">]</span>
 
 <span class="c1"># 默认语言</span>
@@ -284,7 +275,7 @@
 
 <span class="l-Scalar-Plain">fill_default_content</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
 </code></pre></div></li>
-<li><h3 id="toc_10">普通页面或者文章配置</h3>
+<li><h3 id="普通页面或者文章配置">普通页面或者文章配置</h3>
 
 <ul>
 <li><p><code>no_fill_default_content</code></p>
@@ -293,7 +284,7 @@
 </ul></li>
 </ul>
 
-<h1 id="toc_11">变量</h1>
+<h1 id="变量">变量</h1>
 
 <hr>
 
@@ -334,11 +325,11 @@
 <p><code>site.posts</code> 根据语言分组。</p></li>
 </ul>
 
-<h1 id="toc_12">分页</h1>
+<h1 id="分页">分页</h1>
 
 <hr>
 
-<h4 id="toc_13">分页模板</h4>
+<h4 id="分页模板">分页模板</h4>
 
 <ul>
 <li><p>形如 <code>index.*</code> 都可以做为默认语言的分页模板。并不局限于 <code>index.html</code>。</p>
@@ -349,7 +340,7 @@
 <p>比如: <code>index.cn.md</code>, <code>cn.index.md</code>.</p></li>
 </ul>
 
-<h4 id="toc_14">分页的变量</h4>
+<h4 id="分页的变量">分页的变量</h4>
 
 <ul>
 <li><p><code>paginator.posts</code></p>
@@ -357,7 +348,7 @@
 <p>当前语言的所有文章。</p></li>
 </ul>
 
-<h1 id="toc_15">Github Pages</h1>
+<h1 id="github-pages">Github Pages</h1>
 
 <hr>
 
