@@ -147,25 +147,17 @@ path-of-docs/
 #Installation
 ---
 
-<p class='lead'>You can fork the github repository, or download zip package.</p>
+```bash
+gem install jekyll-multiple-languages
+```
 
-<div class="row">
-    <div class="col-sm-6">
-        <h3>Github</h3>
-        <p>Fork it in Github, use the souce code in your project.</p>
-        <a href="{{ site.download.rep }}" class="btn btn-lg btn-outline" role="button" >View on Github</a>
-    </div>
-    <div class="col-sm-6">
-        <h3 id="download-zip">Zip</h3>
-        <p>If you dont use git, you can download the zip package.</p>
-        <a href="{{ site.download.dist }}" class="btn btn-lg btn-outline" role="button" >Download zip</a>
-    </div>
-</div>
 
 # Configure
 ---
 
 * ### in `_config.yml`
+
+    * `gems`:   add `'Jekyll-multiple-languages'` to `gems`
 
     * `languages`: The all of the languages.
     
@@ -183,6 +175,8 @@ path-of-docs/
     
     ```yaml
     # Multiple languages
+    gems:           ['jekyll-multiple-languages']
+
     languages:          ['en', 'cn']
     
     # If not config, the first of languages will be the default

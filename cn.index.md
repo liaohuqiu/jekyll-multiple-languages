@@ -147,25 +147,18 @@ path-of-docs/
 #安装和使用
 ---
 
-<p class='lead'>You can fork the github repository, or download zip package.</p>
+使用gem安装扩展
 
-<div class="row">
-    <div class="col-sm-6">
-        <h3>Github</h3>
-        <p>Fork it in Github, use the souce code in your project.</p>
-        <a href="{{ site.download.rep }}" class="btn btn-lg btn-outline" role="button" >View on Github</a>
-    </div>
-    <div class="col-sm-6">
-        <h3 id="download-zip">Zip</h3>
-        <p>If you dont use git, you can download the zip package.</p>
-        <a href="{{ site.download.dist }}" class="btn btn-lg btn-outline" role="button" >Download zip</a>
-    </div>
-</div>
+```bash
+gem install jekyll-multiple-languages
+```
 
 # 配置
 ---
 
 * ###  `_config.yml`
+
+    * `gems`:   加入 `'Jekyll-multiple-languages'` 
 
     * `languages`: 所有的语言
     
@@ -181,6 +174,8 @@ path-of-docs/
     
     ```yaml
     # 多语言配置
+    gems:           ['jekyll-multiple-languages']
+
     languages:          ['en', 'cn']
     
     # 默认语言

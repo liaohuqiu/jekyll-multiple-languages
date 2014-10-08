@@ -29,6 +29,8 @@ meta:
   author:       liaohuqiu@gmail.com
 
 # Multiple languages
+gems:           ['jekyll-multiple-languages']
+
 languages:          ['en', 'cn']
 
 # If not config, the first of languages will be the default
