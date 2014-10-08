@@ -1,3 +1,27 @@
+### Quick start
+
+```bash
+gem install jekyll-multiple-languages
+```
+
+add config to your `_config.yml`
+
+```
+gems:           ['jekyll-multiple-languages']
+
+# Multiple languages
+languages:          ['en', 'cn']
+
+# If not config, the first of languages will be the default
+language_default:   'en'
+
+# If a post of default language not set `no_fill_default_content` to true
+# Its content will use to replace if the corresponding content of other languages is not exist.
+# fill_default_content: true
+```
+
+### Doc
+
 Multiple Languages Plugin for Jekyll
 
 [Visit Project Page for more information](http://jekyll-langs.liaohuqiu.net/)
