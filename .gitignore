@@ -1,5 +1,6 @@
 # Ignore docs files
 .ruby-version
+*.gem
 
 # Numerous always-ignore extensions
 *.diff
