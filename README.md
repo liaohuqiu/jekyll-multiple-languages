@@ -1,3 +1,6 @@
+It can work with octopress now.
+Happy coding.
+
 ### Quick start
 
 install
