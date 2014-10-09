@@ -4,6 +4,7 @@ module Jekyll
   module MultiLang
     attr_accessor :language, :name_no_language, :is_default_language, :url_no_language, :dir_source
 
+    # rewirte initialize
     def process_initialize(site, base, dir, name)
       name_no_language = name.dup
 
@@ -33,6 +34,7 @@ module Jekyll
       @url_no_language
     end
 
+    # rewirte url
     def process_url
       if !@url
         url = self.url_org 
@@ -46,6 +48,7 @@ module Jekyll
       @url
     end
 
+    # rewirte to_liquid
     def process_to_liquid(attrs = nil)
       data_for_liquid = self.to_liquid_org(attrs)
       attrs_for_lang = self.language_attributes_for_liquid || []
@@ -158,17 +161,29 @@ module Jekyll
 
     alias :url_org :url
     def url
-      process_url
+      if @language
+        process_url
+      else
+        url_org
+      end
     end
 
     alias :process_org :process
     def process(name)
-      process_org(@name_no_language)
+      if @language
+        process_org(@name_no_language)
+      else
+        process_org(name)
+      end
     end
 
     alias :to_liquid_org :to_liquid
     def to_liquid(attrs = nil)
-      process_to_liquid(attrs)
+      if @language
+        process_to_liquid(attrs)
+      else
+        to_liquid_org(attrs)
+      end
     end
 
     def language_attributes_for_liquid
@@ -193,12 +208,20 @@ module Jekyll
 
     alias :url_org :url
     def url
-      process_url
+      if @language
+        process_url
+      else
+        url_org
+      end
     end
 
     alias :process_org :process
     def process(name)
-      process_org(@name_no_language)
+      if @language
+        process_org(@name_no_language)
+      else
+        process_org(name)
+      end
     end
 
     def inspect
@@ -218,7 +241,11 @@ module Jekyll
 
     alias :to_liquid_org :to_liquid
     def to_liquid(attrs = nil)
-      process_to_liquid(attrs)
+      if @language
+        process_to_liquid(attrs)
+      else
+        to_liquid_org(attrs)
+      end
     end
 
   end

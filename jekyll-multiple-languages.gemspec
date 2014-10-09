@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'jekyll-multiple-languages'
-  s.version     = '1.0.3'
+  s.version     = '1.0.4'
   s.date        = '2014-08-15'
   s.summary     = "Another Multiple Languages Plugin for Jekyll!"
   s.description = ""
