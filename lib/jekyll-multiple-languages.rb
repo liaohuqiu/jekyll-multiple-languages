@@ -69,6 +69,7 @@ module Jekyll
       self.begin_inject
       process_org
     rescue Exception => e
+      print e.message, "\n"
       print e.backtrace.join("\n")
     end
 
@@ -134,7 +135,6 @@ module Jekyll
       %w[languages language_default fill_default_content].each do |opt|
         self.send("#{opt}=", config[opt])
       end
-      self.config = config
     end
 
     alias :site_payload_org :site_payload
