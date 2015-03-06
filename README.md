@@ -10,7 +10,7 @@ gem install jekyll-multiple-languages
 
 Gemfile
 ```ruby
-gem 'jekyll-multiple-languages', '~> 1.0.6'
+gem 'jekyll-multiple-languages', '~> 1.0.7'
 ```
 
 add config to your `_config.yml`
