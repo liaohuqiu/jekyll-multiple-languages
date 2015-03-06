@@ -1,5 +1,6 @@
 require "jekyll-multiple-languages/pager"
 require "jekyll-multiple-languages/pagination"
+require "jekyll-multiple-languages/tags"
 module Jekyll
   module MultiLang
     attr_accessor :language, :name_no_language, :is_default_language, :url_no_language, :dir_source, :next_in_language, :previous_in_language
@@ -151,6 +152,7 @@ module Jekyll
     def update_config(config)
       !config['languages'] && config['languages'] = []
       !config['language_default'] && config['language_default'] = config['languages'].first;
+      !config['i18ndir'] && config['i18ndir'] = "_i18n";
 
       %w[languages language_default fill_default_content].each do |opt|
         self.send("#{opt}=", config[opt])

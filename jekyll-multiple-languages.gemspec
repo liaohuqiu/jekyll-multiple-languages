@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
     "lib/jekyll-multiple-languages.rb",
     "lib/jekyll-multiple-languages/pager.rb",
     "lib/jekyll-multiple-languages/pagination.rb",
+    "lib/jekyll-multiple-languages/tags.rb",
   ]
   s.homepage    = 'http://jekyll-langs.liaohuqiu.net/'
   s.license      = 'MIT'
