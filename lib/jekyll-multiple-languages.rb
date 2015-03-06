@@ -2,7 +2,7 @@ require "jekyll-multiple-languages/pager"
 require "jekyll-multiple-languages/pagination"
 module Jekyll
   module MultiLang
-    attr_accessor :language, :name_no_language, :is_default_language, :url_no_language, :dir_source
+    attr_accessor :language, :name_no_language, :is_default_language, :url_no_language, :dir_source, :next_in_language, :previous_in_language
 
     # rewirte initialize
     def process_initialize(site, base, dir, name)
@@ -34,6 +34,26 @@ module Jekyll
       @url_no_language
     end
 
+    def next_in_language
+      posts = site.posts_by_language[@language].values
+      pos = posts.index { |post| post.equal?(self) }
+      if pos && pos < posts.length - 1
+        posts[pos + 1]
+      else
+        nil
+      end
+    end
+
+    def previous_in_language
+      posts = site.posts_by_language[@language].values
+      pos = posts.index { |post| post.equal?(self) }
+      if pos && pos > 0
+        posts[pos - 1]
+      else
+        nil
+      end
+    end
+
     # rewirte url
     def process_url
       if !@url
@@ -52,7 +72,7 @@ module Jekyll
     def process_to_liquid(attrs = nil)
       data_for_liquid = self.to_liquid_org(attrs)
       attrs_for_lang = self.language_attributes_for_liquid || []
-      attrs_for_lang.concat(%w[language is_default_language url_no_language])
+      attrs_for_lang.concat(%w[language is_default_language url_no_language previous_in_language next_in_language])
       further_data = Hash[attrs_for_lang.map { |attribute|
         [attribute, send(attribute)]
       }]
