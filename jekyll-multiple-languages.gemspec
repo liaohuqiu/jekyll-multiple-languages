@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'jekyll-multiple-languages'
-  s.version     = '1.0.7'
+  s.version     = '1.0.9'
   s.date        = '2014-08-15'
   s.summary     = "Another Multiple Languages Plugin for Jekyll!"
   s.description = ""
@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
     "lib/jekyll-multiple-languages.rb",
     "lib/jekyll-multiple-languages/pager.rb",
     "lib/jekyll-multiple-languages/pagination.rb",
+    "lib/jekyll-multiple-languages/tags.rb",
   ]
   s.homepage    = 'http://jekyll-langs.liaohuqiu.net/'
   s.license      = 'MIT'
