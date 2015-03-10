@@ -29,6 +29,14 @@ language_default:   'en'
 # fill_default_content: true
 ```
 
+### Contributors
+
+    [cbergmann](https://github.com/cbergmann)
+
+### Thanks
+
+`t tag`: https://github.com/screeninteraction/jekyll-multiple-languages-plugin
+
 ### Doc
 
 Multiple Languages Plugin for Jekyll
