@@ -31,7 +31,7 @@ language_default:   'en'
 
 ### Contributors
 
-    [cbergmann](https://github.com/cbergmann)
+[cbergmann](https://github.com/cbergmann)
 
 ### Thanks
 
