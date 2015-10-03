@@ -161,11 +161,14 @@ module Jekyll
 
     alias :site_payload_org :site_payload
     def site_payload
-      payload = site_payload_org
-      payload.merge({
-        "posts_by_language" => self.posts_by_language,
-        "pages_by_language" => self.pages_by_language,
+      original = site_payload_org
+      payload = original['site']
+      payload = payload.merge({
+        'posts_by_language' => self.posts_by_language,
+        'pages_by_language' => self.pages_by_language
       })
+      original['site'] = payload
+      original
     end
 
   end
@@ -223,7 +226,7 @@ module Jekyll
 
     MATCHER_WITH_LANG = /^(.+\/)*(?:.+\.)*(\d+-\d+-\d+)-(.*)(\.[^.]+)$/
 
-      alias :initialize_org :initialize
+    alias :initialize_org :initialize
     def initialize(site, source, dir, name)
       process_initialize(site, source, dir, name)
     end
