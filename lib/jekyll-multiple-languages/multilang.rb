@@ -10,10 +10,15 @@ module Jekyll
       # xxx.$lang.md / $lang.xxx.md
       lang = nil
       site.config['languages'].each{ |item|
-        lang_str = item + '.'
+
+        if name.start_with? (item + '.') or name.include? ('/' + item + '.')
+          raise RuntimeError, "This kind of name is not supported any longer: '#{name}', which starts with '$lang'"
+        end
+
+        lang_str = '.' + item + '.'
         if name_no_language.include? lang_str
           lang = item
-          name_no_language.slice! lang_str
+          name_no_language.slice! lang + '.'
         end
       }
 
@@ -25,6 +30,9 @@ module Jekyll
     end
 
     def url_no_language
+      if not @url_no_language
+        url
+      end
       @url_no_language
     end
 

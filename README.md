@@ -8,7 +8,7 @@ gem install jekyll-multiple-languages
 
 Gemfile
 ```ruby
-gem 'jekyll-multiple-languages', '~> 2.0.1'
+gem 'jekyll-multiple-languages', '~> 2.0.2'
 ```
 
 ### config

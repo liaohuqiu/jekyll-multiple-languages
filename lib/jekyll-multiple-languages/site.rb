@@ -3,7 +3,7 @@ module Jekyll
   # Rewrite Jekyll.site
   #
   class Site
-    attr_accessor :language_default, :languages, :posts_by_language, :pages_by_language, :fill_default_content
+    attr_accessor :language_default, :languages, :posts_by_language, :pages_by_language
 
     alias :process_org :process
     def process
@@ -17,16 +17,37 @@ module Jekyll
     alias :read_org :read
     def read
       read_org
-      group_posts_and_pages
+    end
+
+    alias :generate_org :generate
+    def generate
+      group_posts
+      generate_org
+      group_pages
     end
 
     # Group the post by the language
     #
-    def group_posts_and_pages
-      lang_default = self.language_default
-      langs_remain = self.languages.dup
-      langs_remain.delete(lang_default)
+    def group_posts
+      self.posts.docs.each {|post|
+        @posts_by_language[post.language][post.url_no_language] = post
+      }
+    end
 
+    # Group the pages by the language
+    #
+    def group_pages
+      self.pages.each {|page|
+        @pages_by_language[page.language][page.url_no_language] = page
+      }
+    end
+
+    # Only when site is initialized, this plugin will be loaded
+    def begin_inject
+
+      self.update_config(self.config)
+
+      # initialize
       @posts_by_language = {}
       @pages_by_language = {}
 
@@ -35,36 +56,6 @@ module Jekyll
         @pages_by_language[lang] ||= {}
       }
 
-      self.posts.docs.each {|post|
-        @posts_by_language[post.language][post.url_no_language] = post
-      }
-      self.pages.each {|page|
-        # @pages_by_language[page.language][page.url_no_language] = page
-      }
-
-      if (@fill_default_content)
-        self.fill_default_content(@posts, @posts_by_language, lang_default, langs_remain, Post)
-        self.fill_default_content(@pages, @pages_by_language, lang_default, langs_remain, Page)
-      end
-    end
-
-    def fill_default_content(contents, grouped_contents, default, targets, kclass)
-      grouped_contents[default].select{|k,v| !v.data['no_fill_default_content']}.each{ |k, content|
-        targets.each{|lang|
-          if !grouped_contents[lang][k]
-            c = kclass.new(self, @source, content.dir_source, content.name)
-            c.language = lang
-            c.is_default_language = false
-            grouped_contents[lang][k] = c
-            contents << c
-          end
-        }
-      }
-    end
-
-    # Only when site is initialized, this plugin will be loaded
-    def begin_inject
-      self.update_config(self.config)
     end
 
     # Update config, process languages and language_default options.
@@ -77,7 +68,7 @@ module Jekyll
       # set the default value of `i18ndir` to `_i18n`
       config['i18ndir'] ||= "_i18n";
 
-      %w[languages language_default fill_default_content].each do |opt|
+      %w[languages language_default].each do |opt|
         self.send("#{opt}=", config[opt])
       end
     end
@@ -85,11 +76,20 @@ module Jekyll
     # add `posts_by_language` and `pages_by_language`
     alias :site_payload_org :site_payload
     def site_payload
+
       original = site_payload_org
+
+      posts_by_language = {}
+      pages_by_language = {}
+      self.languages.dup.each { |lang|
+        posts_by_language[lang] = @posts_by_language[lang].values.sort { |a, b| b <=> a }
+        pages_by_language[lang] = @pages_by_language[lang].values
+      }
+
       payload = original['site']
       payload = payload.merge({
-        'posts_by_language' => self.posts_by_language,
-        'pages_by_language' => self.pages_by_language
+        'posts_by_language' => posts_by_language,
+        'pages_by_language' => pages_by_language
       })
       original['site'] = payload
       original
