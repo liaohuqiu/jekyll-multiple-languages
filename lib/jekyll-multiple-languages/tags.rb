@@ -1,7 +1,8 @@
+# encoding: UTF-8
 module Jekyll
   @translations={}
   def self.translations
-        @translations
+    @translations
   end
 
   class LocalizeTag < Liquid::Tag

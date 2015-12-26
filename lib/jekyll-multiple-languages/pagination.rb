@@ -6,6 +6,7 @@ module Jekyll
     # => /$lang/... /...
     # 
     class Pagination < Generator
+
       def generate(site)
         if Pager.pagination_enabled?(site)
           pages = find_template_pages(site)
@@ -26,7 +27,7 @@ module Jekyll
         (1..pages).each do |num_page|
           pager = Pager.new(site, the_template_page, num_page, all_posts, pages)
           if num_page > 1
-            newpage = Page.new(site, site.source, the_template_page.dir_source, the_template_page.name)
+            newpage = Page.new(site, site.source, the_template_page.dir_org, the_template_page.name)
             newpage.pager = pager
             newpage.dir = Pager.calc_paginate_path(site, the_template_page, num_page)
             site.pages << newpage

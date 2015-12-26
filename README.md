@@ -1,17 +1,17 @@
-It can work with octopress now.
-Happy coding.
+It can work with Jekyll 3 now. Happy coding!
 
-### Quick start
+### install
 
-install
 ```bash
 gem install jekyll-multiple-languages
 ```
 
 Gemfile
 ```ruby
-gem 'jekyll-multiple-languages', '~> 1.0.11'
+gem 'jekyll-multiple-languages', '~> 2.0.1'
 ```
+
+### config
 
 add config to your `_config.yml`
 
@@ -24,9 +24,14 @@ languages:          ['en', 'cn']
 # If not config, the first of languages will be the default
 language_default:   'en'
 
-# If a post of default language not set `no_fill_default_content` to true
-# Its content will use to replace if the corresponding content of other languages is not exist.
-# fill_default_content: true
+```
+
+### Pagination
+
+If you want pagination, make sure `jekyll-paginate` is in front of `jekyll-multiple-languages`:
+
+```
+gems:           ['jekyll-paginate', 'jekyll-multiple-languages']
 ```
 
 ### Contributors
