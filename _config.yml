@@ -1,8 +1,9 @@
 # Dependencies
 markdown:         redcarpet
 redcarpet:
-    extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-pygments:         true
+    extensions:   ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+
+highlighter:      pygments
 
 # Permalinks
 permalink:        pretty
@@ -29,17 +30,12 @@ meta:
   author:       liaohuqiu@gmail.com
 
 # Multiple languages
-gems:           ['jekyll-multiple-languages']
+gems:           ['jekyll-paginate', 'jekyll-multiple-languages']
 
 languages:          ['en', 'cn']
 
 # If not config, the first of languages will be the default
 language_default:   'en'
-
-# If a post of default language not set `no_fill_default_content` to true
-# Its content will use to replace if the corresponding content of other languages is not exist.
-# 
-fill_default_content: true
 
 navigation:
   en:
@@ -62,7 +58,7 @@ right_nav:
     url:      /
   - title:    中文版文档
     url:      /cn
-  - title:    Fork on Github
+  - title:    Github
     url:     https://github.com/liaohuqiu/jekyll-multiple-languages
 
 # analytics account info
