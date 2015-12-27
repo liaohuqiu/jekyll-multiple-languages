@@ -7,7 +7,7 @@ lead: ""
 # What is it?
 ---
 
-[Jekyll][] is very powerful. It is very conveniect to write bolg with [Jekyll][].
+[Jekyll](https://jekyllrb.com/) is very powerful. It is very conveniect to write bolg with [Jekyll](https://jekyllrb.com/).
 
 If we write mainly in English, and sometimes in other languages, now we can do this in a easy way.
 
@@ -101,11 +101,11 @@ gem install jekyll-paginate
 
 *   `page.next_in_language`
 
-    当前语言的下一个页面
+    Next post in the same language with this post.
 
 *   `page.previous_in_language`
 
-    当前语言的上一个页面
+    Previous post in the same language with this post.
 
 ### Variables for site
 
@@ -182,6 +182,3 @@ gem install jekyll-paginate
 **And here is a solution.**
 
 * [How to use Jekyll plugins on Github Pages](http://www.liaohuqiu.net/posts/jekyll-plugins-on-github-pages/)
-
-
-[Jekyll]:               https://jekyllrb.com/
