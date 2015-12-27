@@ -125,7 +125,7 @@ lead: ""
 
 ### 变量示例
 
->  http://jekyll-langs-sample.test.srain.in/cn/
+>  http://jekyll-langs-sample.liaohuqiu.net/cn/
 
 # 数据文件
 
@@ -173,7 +173,7 @@ lead: ""
 
 ### 分页示例
 
->  http://jekyll-langs-sample.test.srain.in/cn/
+>  http://jekyll-langs-sample.liaohuqiu.net/cn/
 
 # Github Pages
 ---

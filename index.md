@@ -123,7 +123,7 @@ gem install jekyll-paginate
 
 ### The sample of variables
 
->  http://jekyll-langs-sample.test.srain.in/
+>  http://jekyll-langs-sample.liaohuqiu.net/
 
 # Data
 
@@ -171,7 +171,7 @@ gem install jekyll-paginate
 
 ### The sample of pagination
 
->  http://jekyll-langs-sample.test.srain.in/cn/
+>  http://jekyll-langs-sample.liaohuqiu.net/cn/
 
 # Github Pages Issue
 
