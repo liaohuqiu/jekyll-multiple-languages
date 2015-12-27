@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="description" content="Jekyll多语言插件">
+<meta name="description" content="Jekyll 多语言插件">
 
 
 <meta name="keywords" content="Jekyll 多语言插件">
@@ -80,7 +80,7 @@
                 </li>
                 
                 <li>
-                <a href="https://github.com/liaohuqiu/jekyll-multiple-languages">Fork on Github</a>
+                <a href="https://github.com/liaohuqiu/jekyll-multiple-languages">Github</a>
                 </li>
                 
             </ul>
@@ -109,184 +109,86 @@
 
 <p>在一些场景下，比如在写产品文档， 我们可能需要需要写成多种语言。</p>
 
-<p>这个插件提供了多语言了支持，使用非常简单，并且各个语言原始文档管理非常方便。</p>
+<p>本插件提供了多语言了支持，使用非常简单，并且各个语言原始文档管理非常方便。</p>
 
 <h3 id="文件命名方式">文件命名方式</h3>
 
 <p>默认语言：</p>
 
 <ul>
-<li><p>普通页面: <code>$page_name.$ext</code>. For example:  <code>index.md</code>, <code>about.md</code>.</p></li>
-<li><p>文章页面: <code>_posts/$dir_pre/$date-$post_name.$ext</code>. For example: <code>_posts/blog/2014-02-26-hi.md</code>.</p></li>
+<li><p>普通页面: <code>$page_name.$ext</code>. 比如:  <code>index.md</code>, <code>about.md</code>.</p></li>
+<li><p>文章页面: <code>_posts/$dir_pre/$date-$post_name.$ext</code>. 比如: <code>_posts/blog/2014-02-26-hi.md</code>.</p></li>
 </ul>
 
-<p>其他的语言(<code>$lang</code>): , 在<code>$page_name</code>之前或者之后，加上<code>$lang.</code>，注意<code>$lang</code>后有一个 <code>.</code>。</p>
+<p>其他的语言(<code>$lang</code>): , 在 <code>$page_name</code> 之后，加上 <code>$lang.</code>，注意 <code>$lang</code> 后有一个 <code>.</code>。</p>
 
 <ul>
-<li><p>普通页面:  <code>$lang.page_name.$ext</code> 或者 <code>page_name.$lang.$ext</code>, 比如:</p>
+<li><p>普通页面:  <code>page_name.$lang.$ext</code>, 比如:</p>
 
-<p><code>index.md</code> =&gt; <code>index.cn.md</code>, <code>cn.index.md</code></p></li>
-<li><p>文章页面: <code>_posts/$dir_pre/$lang.$date-$post_name.$ext</code> 或者 <code>_posts/$dir_pre/$date-$post_name.$ext</code></p>
+<p><code>index.md</code> =&gt; <code>index.cn.md</code></p></li>
+<li><p>文章页面: <code>_posts/$dir_pre/$date-$post_name.$ext</code></p>
 
-<p><code>2014-02-26.hi.md</code> =&gt; <code>$lang.2014-02-26.hi.md</code> or <code>2014-02-26-hi.cn.md</code></p></li>
+<p><code>2014-02-26.hi.md</code> =&gt; <code>2014-02-26-hi.cn.md</code></p></li>
 </ul>
 
 <h3 id="生成的结果">生成的结果</h3>
 
 <ul>
 <li><p>默认语言生成的结果和没用本插件一样，如果没有在<code>_config.yml</code>指定目标目录，那么目标目录就是在：<code>_site</code> 目录下。</p></li>
-<li><p>其他的语言(<code>$lang</code>), 生成到目标目录下的 <code>/$lang</code>下，比如：<code>_site/$lang</code>。当<code>$lang</code>为<code>cn</code>时，就是 <code>_site/cn</code>。</p></li>
+<li><p>其他的语言(<code>$lang</code>), 生成到目标目录下的 <code>/$lang</code> 下，比如：<code>_site/$lang</code>。当 <code>$lang</code> 为 <code>cn</code> 时，就是 <code>_site/cn</code>。</p></li>
 </ul>
 
-<hr>
-
-<h3 id="示例">示例</h3>
-
-<ul>
-<li><p><a href="https://github.com/liaohuqiu/jekyll-multiple-languages-sample/tree/master">查看示例代码</a></p></li>
-<li><p><a href="http://jekyll-langs-sample.liaohuqiu.net">示例代码生成的网站</a></p></li>
-</ul>
-
-<h4 id="示例相关的配置">示例相关的配置</h4>
-
-<ul>
-<li><p>例子中我们有两种语言，英语和中文。英语为网站默认语言。</p>
-
-<p>中文用缩写<code>cn</code>来代表。</p>
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">language_default</span><span class="p-Indicator">:</span> <span class="s">&#39;en&#39;</span>
-<span class="l-Scalar-Plain">languages</span><span class="p-Indicator">:</span>        <span class="p-Indicator">[</span><span class="s">&#39;en&#39;</span><span class="p-Indicator">,</span> <span class="s">&#39;cn&#39;</span><span class="p-Indicator">]</span>
-</code></pre></div></li>
-<li><p>然后，在<code>_config.yml</code>中<code>permalink</code>设置成<code>pretty</code>:</p>
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Permalinks, default is pretty</span>
-<span class="l-Scalar-Plain">permalink</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">pretty</span>
-</code></pre></div></li>
-</ul>
-
-<h4 id="原始文档内容">原始文档内容</h4>
-
-<p>如果我们有两个英文页面: <code>index.md</code>, <code>about.md</code>，同时，有两个对应的中文页面，我们可以这样命名，用<code>cn</code>来代替中文:</p>
-
-<ul>
-<li><p><code>index.md</code> =&gt; <code>cn.index.md</code> 或者 <code>index.cn.md</code></p></li>
-<li><p><code>about.md</code> =&gt; <code>cn.about.md</code> 或者 <code>about.cn.md</code></p></li>
-</ul>
-
-<p>在文章目录<code>_posts</code>下，有一个英文的文章 <code>2014-02-26-one.md</code>，对应的中文文章，可以这样：</p>
-
-<ul>
-<li><code>2014-02-26.one.md</code> =&gt; <code>cn.2014-02-26.one.md</code> or <code>2014-02-26.one.cn.md</code>.</li>
-</ul>
-
-<p>另外再有两篇文章:</p>
-
-<ul>
-<li><p><code>cn.2014-02-26-two.md</code></p></li>
-<li><p><code>2014-02-26-three.md</code></p></li>
-</ul>
-
-<h4 id="生成的结果">生成的结果</h4>
-
-<p>用jekyll生成内容：</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>jekyll build
-<span class="nv">$ </span><span class="nb">cd</span> ./_site
-<span class="nv">$ </span>find . -type f
-</code></pre></div>
-<p>列出<code>_site/</code>目录下的所有文件：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">./index.html
-./cn/index.html
-./about/index.html
-./cn/about/index.html
-./2014/02/26/one/index.html
-./cn/2014/02/26/one/index.html
-./cn/2014/02/26/two/index.html
-./2014/02/26/three/index.html
-</code></pre></div>
-<p>整个项目的目录结构：</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">path-of-docs/
- │
- ├── index.md                       <span class="c"># 英文</span>
- ├── about.md                       <span class="c"># 中文</span>
- │
- ├── cn.index.md / index.cn.md      <span class="c"># index.md对应的中文</span>
- ├── cn.about.md / about.cn.md      <span class="c"># about.md对应的中文</span>
- │
- ├── _posts/                        <span class="c"># 文章目录</span>
- │    │    
- │    ├── 2014-02-26-one.md
- │    ├── 2014-02-26.one.cn.md / cn.2014-02-26.one.md
- │    ├── cn.2014-02-26.two.md
- │    └── 2014-02-26-three.md
- │       
- └── _site/                         <span class="c"># 网站生成目录</span>
-      │
-      ├── index.html
-      ├── about/index.html
-      ├── 2014/
-      │   └── 02/
-      │       └── 26/
-      │           ├── one/index.html
-      │           ├── two/index.html
-      │           └── three/index.html
-      └── cn/
-          ├── index.html
-          ├── about/index.html
-          └── 2014/
-              └── 02/
-                  └── 26/
-                      ├── one/index.html
-                      └── two/index.html
-</code></pre></div>
 <h1 id="安装和使用">安装和使用</h1>
 
 <hr>
 
-<p>使用gem安装扩展</p>
+<h3 id="安装">安装</h3>
+
+<ul>
+<li><p>使用 gem 安装扩展</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">gem install jekyll-multiple-languages
-</code></pre></div>
-<h1 id="配置">配置</h1>
+</code></pre></div></li>
+<li><p>如果需要分页，还需要安装 <code>jekyll-paginate</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">gem install jekyll-paginate
+</code></pre></div></li>
+</ul>
+
+<h3 id="配置">配置</h3>
+
+<ul>
+<li><h4 id="_config-yml"><code>_config.yml</code></h4>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># 多语言配置</span>
+<span class="l-Scalar-Plain">gems</span><span class="p-Indicator">:</span>           <span class="p-Indicator">[</span><span class="s">&#39;jekyll-multiple-languages&#39;</span><span class="p-Indicator">]</span>
+<span class="c1"># 如果需要分页, 请加入 jekyll-paginate 并放于 jekyll-multiple-languages 之前</span>
+<span class="c1"># gems:           [&#39;jekyll-paginate&#39;, &#39;jekyll-multiple-languages&#39;]</span>
+
+<span class="c1"># 所有的语言</span>
+<span class="l-Scalar-Plain">languages</span><span class="p-Indicator">:</span>          <span class="p-Indicator">[</span><span class="s">&#39;en&#39;</span><span class="p-Indicator">,</span> <span class="s">&#39;cn&#39;</span><span class="p-Indicator">]</span>
+
+<span class="c1"># 默认语言</span>
+<span class="c1"># 如果没有配置，languages 中的第一项就是默认语言</span>
+<span class="l-Scalar-Plain">language_default</span><span class="p-Indicator">:</span>   <span class="s">&#39;en&#39;</span>
+</code></pre></div></li>
+</ul>
+
+<h1 id="示例">示例</h1>
 
 <hr>
 
 <ul>
-<li><h3 id="_config.yml"><code>_config.yml</code></h3>
+<li><p>这是一份极其详细的示例项目</p>
 
-<ul>
-<li><code>gems</code>:   加入 <code>&#39;Jekyll-multiple-languages&#39;</code> </li>
-<li><code>languages</code>: 所有的语言</li>
-<li><code>language_default</code>: 默认语言，如果没有指定，使用<code>languages</code>数组中的第一个语言。</li>
-<li><p><code>fill_default_content</code>:</p>
+<p><a href="https://github.com/liaohuqiu/jekyll-multiple-languages-sample/tree/master">查看示例代码</a></p></li>
+<li><p>这是示例代码对应的在线的网站</p>
 
-<p>如果这个值设置成 <code>ture</code>，当一个默认语言页面对应的其他语言的页面不存在的时候，会用默认语言页面生成其他语言的页面。</p>
-
-<blockquote>
-<p>如果你不想某些默认语言的文章或者页面被生成其他语言，你可以在这些文章设置<code>no_fill_default_content</code></p>
-</blockquote></li>
-</ul>
-
-<p><code>_config.yml</code>示例</p>
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># 多语言配置</span>
-<span class="l-Scalar-Plain">gems</span><span class="p-Indicator">:</span>           <span class="p-Indicator">[</span><span class="s">&#39;jekyll-multiple-languages&#39;</span><span class="p-Indicator">]</span>
-
-<span class="l-Scalar-Plain">languages</span><span class="p-Indicator">:</span>          <span class="p-Indicator">[</span><span class="s">&#39;en&#39;</span><span class="p-Indicator">,</span> <span class="s">&#39;cn&#39;</span><span class="p-Indicator">]</span>
-
-<span class="c1"># 默认语言</span>
-<span class="c1"># 如果没有配置，languages中的第一项就是默认语言</span>
-<span class="l-Scalar-Plain">language_default</span><span class="p-Indicator">:</span>   <span class="s">&#39;en&#39;</span>
-
-<span class="l-Scalar-Plain">fill_default_content</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
-</code></pre></div></li>
-<li><h3 id="普通页面或者文章配置">普通页面或者文章配置</h3>
-
-<ul>
-<li><p><code>no_fill_default_content</code></p>
-
-<p>在默认语言文章或者普通页面，如果设置成<code>true</code>，当对应的其他语言的页不存在时，不会用于生存这些页面。</p></li>
-</ul></li>
+<p><a href="http://jekyll-langs-sample.liaohuqiu.net">示例代码生成的网站</a></p></li>
 </ul>
 
 <h1 id="变量">变量</h1>
 
 <hr>
+
+<h3 id="普通页面和文章页面通用变量">普通页面和文章页面通用变量</h3>
 
 <ul>
 <li><p><code>page.language</code></p>
@@ -295,66 +197,97 @@
 <li><p><code>page.is_default_language</code></p>
 
 <p>当前页面或者文章的语言是否是默认语言。</p></li>
-<li><p><code>page.url</code></p>
+</ul>
 
-<p>如果是默认语言页面，这个值和没使用插件时没有任何区别。</p>
+<h3 id="文章页面独有的变量">文章页面独有的变量</h3>
 
-<p>如果是其他语言，路径前缀是<code>page.language</code>，比如: <code>/cn/about/</code>;</p></li>
-<li><p><code>page.url_no_language</code></p>
+<ul>
+<li><p><code>page.next_in_language</code></p>
 
-<p>不含<code>site.language</code>的路径，和不使用本插件时的<code>page.url</code>值一样。</p>
+<p>当前语言的下一个文章</p></li>
+<li><p><code>page.previous_in_language</code></p>
 
-<p>在默认语言的页面或者文章中，这个值和<code>page.url</code>一样。</p>
+<p>当前语言的上一个文章</p></li>
+</ul>
 
-<p>同一页面所有语言的<code>page.url</code>都一样。</p>
+<h3 id="site-变量">site 变量</h3>
 
-<hr></li>
-<li><p><code>site.pages</code></p>
-
-<p>包括所有语言在内的所有页面。</p></li>
-<li><p><code>site.posts</code></p>
-
-<p>包括所有语言在内的所有文章。</p></li>
+<ul>
 <li><p><code>site.pages_by_language</code></p>
 
-<p><code>site.pages</code> 根据语言分组。key是语言，value是该语言下的所有文章。</p>
-
-<p>各个语言对应的文章，以<code>page.url_no_language</code>索引。</p></li>
+<p><code>site.pages</code> key-value 键对。根据语言分组。key 是语言，value 是该语言下的所有页面。</p></li>
 <li><p><code>site.posts_by_language</code></p>
 
 <p><code>site.posts</code> 根据语言分组。</p></li>
+</ul>
+
+<h3 id="变量示例">变量示例</h3>
+
+<blockquote>
+<p><a href="http://jekyll-langs-sample.test.srain.in/cn/">http://jekyll-langs-sample.test.srain.in/cn/</a></p>
+</blockquote>
+
+<h1 id="数据文件">数据文件</h1>
+
+<ul>
+<li><p>我们可以在 <code>_data</code> 目录下创建一个数据文件，存放多语言相关的变量，比如 <code>i18n.yml</code>：</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">en</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">previous_page</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Previous</span>
+    <span class="l-Scalar-Plain">next_page</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">Next</span>
+
+<span class="l-Scalar-Plain">cn</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">previous_page</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">上一页</span>
+    <span class="l-Scalar-Plain">next_page</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">下一页</span>
+</code></pre></div></li>
+<li><p>然后我们在 <code>pagination.html</code> 使用</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;li&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ paginator.previous_page_path }}&quot;</span> <span class="na">aria-label=</span><span class="s">&quot;Previous&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span&gt;</span>{{ site.data.i18n[page.language].previous_page }}<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/li&gt;</span>
+</code></pre></div></li>
 </ul>
 
 <h1 id="分页">分页</h1>
 
 <hr>
 
-<h4 id="分页模板">分页模板</h4>
+<p><strong>本插件扩展了 <code>jekyll-paginate</code> 使之支持多语言，并且可使用任意后缀文件。</strong></p>
+
+<h3 id="分页模板">分页模板</h3>
 
 <ul>
 <li><p>形如 <code>index.*</code> 都可以做为默认语言的分页模板。并不局限于 <code>index.html</code>。</p>
 
 <p>比如: <code>index.md</code>, <code>index.html</code>.</p></li>
-<li><p>其他语言的分页模板文件命名格式为: <code>index.$lang.$ext</code> 或者 <code>$lang.index.$ext</code>。</p>
+<li><p>其他语言的分页模板文件命名格式为: <code>index.$lang.$ext</code></p>
 
-<p>比如: <code>index.cn.md</code>, <code>cn.index.md</code>.</p></li>
+<p>比如: <code>index.cn.md</code></p></li>
 </ul>
 
-<h4 id="分页的变量">分页的变量</h4>
+<h3 id="分页的变量">分页的变量</h3>
 
 <ul>
-<li><p><code>paginator.posts</code></p>
-
-<p>当前语言的所有文章。</p></li>
+<li>  同 <a href="http://jekyllrb.com/docs/pagination/">jekyll-paginate</a></li>
 </ul>
+
+<h3 id="分页示例">分页示例</h3>
+
+<blockquote>
+<p><a href="http://jekyll-langs-sample.test.srain.in/cn/">http://jekyll-langs-sample.test.srain.in/cn/</a></p>
+</blockquote>
 
 <h1 id="github-pages">Github Pages</h1>
 
 <hr>
 
-<p><strong>Github Pages 运行在safe模式，在这个模式下，暂时无法使用插件。</strong></p>
+<p><strong>Github Pages 运行在 safe 模式，在这个模式下，暂时无法使用插件。</strong></p>
 
-<p>如果你网站要放到Github上，这里有一个解决方案：: <strong><a href="http://www.liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages/">托管在Github上的网站如何使用插件</a></strong></p>
+<p><strong>如果你网站要放到 Github 上，这里有一个解决方案</strong></p>
+
+<ul>
+<li><a href="http://www.liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages/">托管在Github上的网站如何使用插件</a></li>
+</ul>
 
         </div>
         <div class="col-md-3">
