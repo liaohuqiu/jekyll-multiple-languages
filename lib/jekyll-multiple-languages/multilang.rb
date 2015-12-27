@@ -1,7 +1,7 @@
 # encoding: UTF-8
 module Jekyll
   module MultiLang
-    attr_accessor :language, :is_default_language, :url_no_language, :next_in_language, :previous_in_language
+    attr_accessor :language, :is_default_language
 
     def detect_language(site, name)
       name_no_language = name.dup
@@ -36,25 +36,6 @@ module Jekyll
       @url_no_language
     end
 
-    def next_in_language
-      posts = site.posts_by_language[@language].values
-      pos = posts.index { |post| post.equal?(self) }
-      if pos && pos < posts.length - 1
-        posts[pos + 1]
-      else
-        nil
-      end
-    end
-
-    def previous_in_language
-      posts = site.posts_by_language[@language].values
-      pos = posts.index { |post| post.equal?(self) }
-      if pos && pos > 0
-        posts[pos - 1]
-      else
-        nil
-      end
-    end
 
     # rewrite url
     def rewrite_url(url)
@@ -67,7 +48,7 @@ module Jekyll
 
     def append_data_for_liquid(data_for_liquid)
       attrs_for_lang = self.language_attributes_for_liquid || []
-      attrs_for_lang.concat(%w[language is_default_language url_no_language previous_in_language next_in_language])
+      attrs_for_lang.concat(%w[language is_default_language])
       further_data = Hash[attrs_for_lang.map { |attribute|
         [attribute, send(attribute)]
       }]

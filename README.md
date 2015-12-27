@@ -1,5 +1,7 @@
 It can work with Jekyll 3 now. Happy coding!
 
+# Quick start
+
 ### install
 
 ```bash
@@ -8,7 +10,7 @@ gem install jekyll-multiple-languages
 
 Gemfile
 ```ruby
-gem 'jekyll-multiple-languages', '~> 2.0.2'
+gem 'jekyll-multiple-languages', '~> 2.0.3'
 ```
 
 ### config
@@ -43,10 +45,8 @@ gems:           ['jekyll-paginate', 'jekyll-multiple-languages']
 
 `t tag`: https://github.com/screeninteraction/jekyll-multiple-languages-plugin
 
-### Doc
-
-Multiple Languages Plugin for Jekyll
+### Document
 
 [Visit Project Page for more information](http://jekyll-langs.liaohuqiu.net/)
 
-[中文文档](http://jekyll-langs.liaohuqiu.net/cn)
+[中文版文档](http://jekyll-langs.liaohuqiu.net/cn)

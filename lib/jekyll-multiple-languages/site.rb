@@ -79,6 +79,7 @@ module Jekyll
 
       original = site_payload_org
 
+      # convert map to array
       posts_by_language = {}
       pages_by_language = {}
       self.languages.dup.each { |lang|
