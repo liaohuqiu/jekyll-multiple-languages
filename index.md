@@ -171,7 +171,7 @@ gem install jekyll-paginate
 
 ### The sample of pagination
 
->  http://jekyll-langs-sample.liaohuqiu.net/cn/
+>  http://jekyll-langs-sample.liaohuqiu.net/
 
 # Github Pages Issue
 
